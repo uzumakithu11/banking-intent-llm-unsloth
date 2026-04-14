@@ -61,5 +61,9 @@ class IntentClassification:
 if __name__ == "__main__":
     model = IntentClassification("configs/inference.yaml")
 
-    print(model("I want to block my card"))
-    print(model("I want to open a bank account"))
+    if len(sys.argv) > 1:
+        query = " ".join(sys.argv[1:])
+    else:
+        query = input("Enter query: ")
+
+    print("Prediction:", model(query))
