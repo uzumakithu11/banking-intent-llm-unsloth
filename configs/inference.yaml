@@ -1,0 +1,2 @@
+model_path: outputs/checkpoint-final
+max_seq_length: 512
