@@ -2,4 +2,4 @@
 
 echo "Running inference..."
 
-python inference.py
+python inference.py "$1"
