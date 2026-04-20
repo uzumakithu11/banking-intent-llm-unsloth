@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📂 Dataset
+## Dataset
 
 Place your dataset at:
 
