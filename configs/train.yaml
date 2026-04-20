@@ -1,0 +1,64 @@
+# ===== Model =====
+model:
+  name: "unsloth/Llama-3.1-8B-bnb-4bit"
+  max_seq_length: 2048
+  dtype: null          # null = auto
+  load_in_4bit: true
+
+# ===== LoRA =====
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+# ===== Data =====
+data:
+  train_path: "sample_data/train.csv"
+  text_column: "text"
+  label_column: "label"
+
+# ===== Prompt =====
+prompt:
+  template: |
+    Classify the intent of the following banking query.
+
+    ### Query:
+    {}
+
+    ### Intent:
+    {}
+
+# ===== Training =====
+training:
+  batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 5
+  num_epochs: 1
+  learning_rate: 1e-4
+
+  logging_steps: 1
+  output_dir: "outputs"
+
+# ===== Optimizer =====
+optimizer:
+  type: "adamw_8bit"
+  weight_decay: 0.001
+  lr_scheduler: "linear"
+
+# ===== Precision =====
+precision:
+  fp16: true
+  bf16: false
+
+# ===== Misc =====
+seed: 3407
+max_grad_norm: 1.0
+packing: true
