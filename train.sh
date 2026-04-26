@@ -4,6 +4,6 @@ echo "Installing dependencies..."
 pip install -r requirements.txt
 
 echo "Start training..."
-python train.py 
+python scripts/train.py 
 
 echo "Done!"
