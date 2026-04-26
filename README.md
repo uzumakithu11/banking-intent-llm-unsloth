@@ -60,7 +60,7 @@ train.sh
 Or directly:
 
 ```bash
-python train.py
+python scripts/train.py
 ```
 
 ### Config file
@@ -98,13 +98,18 @@ Includes:
 ## Inference
 
 ```bash
-inference.sh
+inference.sh [Example input]
+Ex: inference.sh "i lost my card"
+```
+Evaluate accuracy
+```bash
+inference.sh --eval sample_data/test.csv
 ```
 
 Or Python:
 
 ```python
-python inference.py
+python scripts/inference.py
 ```
 
 ## Dependencies
